@@ -1,1 +1,3 @@
 test1:$2y$12$m6HBd7L6HwxC6PlGU5RPvuiCHtem/xNeoW4hcYqjMnZ/vMq.92iG2
+test2:$2y$12$VZFzD7TbKhRc6E7KVd5IxuVZuteJBoujUAj0t.2VcMfk4kLYynU82
+test3:$2y$12$0oI9adX83kp0f.tIxy4j5OJ1u0TgTvNyeLgyezlO4901lM29cQBqW

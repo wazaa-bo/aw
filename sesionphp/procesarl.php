@@ -15,7 +15,7 @@ foreach($users as $line){
     }
 }
 if($login_success){
-    header("Location: welcom.php");
+    header("Location: wouu.php");
     exit;
 } else{
     echo"<h1>User or password incorrect</h1>";

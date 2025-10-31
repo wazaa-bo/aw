@@ -1,0 +1,45 @@
+        body{
+            background-image: url(img/weiss.jpeg);
+            font-family: fantasy;
+            color: #fff;
+            font-size: larger;
+        }
+        .topbar{
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 50px;
+            background-color: black;
+            display: flex;
+            align-items: center;
+            padding: 0 20px;
+            gap: 20px;
+            z-index: 1000;
+            justify-content: end;
+        }
+        .login{
+            color: #fff;
+            text-decoration: wavy;
+            font-weight: bold;
+        }
+        .signin{
+            color: black;
+            text-decoration: wavy;
+            border: none;
+            padding: 15px;
+            border-radius: 6px;
+            margin: 8px 0;
+            background-color: #fff;
+            font-weight: bold;
+        }
+        .logout{
+            color: black;
+            text-decoration: wavy;
+            border: none;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 8px 0;
+            background-color: #fff;
+            font-weight: bold;
+        }
