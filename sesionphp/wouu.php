@@ -16,7 +16,19 @@ $log=isset($_SESSION['user']);
 <?php if($log): ?>
     <br><br><br>
     <h1>Welcome, <?php echo $_SESSION['user'];?></h1>
-    <p>Has iniciado sesión exitosamente, <br> estás en el Grimoire Weiss database</p>
+    <?php
+    $line= file("users.txt",FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+    ?>
+    <p>Has iniciado sesión exitosamente, <br> estás en el Grimoire Weiss database   <br><br><br><br><br>
+    All users: </p>
+    <p>
+    <?php
+    foreach($line as $l){
+        list($user,$hash)=explode(":", $l,2);
+        echo htmlspecialchars($user). "<br>";
+    }
+    ?>
+</p>
     <header class="topbar">
         <a class="logout" href="cerrarsesion.php">Cerrar sesión</a>
     </header>
