@@ -1,3 +1,34 @@
+<?php
+session_start();
+$msg="";
+if($_SERVER['REQUEST_METHOD']==='POST') {
+
+$user=$_POST['user'];
+$password=$_POST['password'];
+$line=file("users.txt",FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+
+$found=false;
+
+foreach($line as $l){
+    list($u,$hash)=explode(":",$l,2);
+    
+    if($u === $user){
+        $found=true;
+        if (password_verify($password,$hash)){
+            $_SESSION['user']=$user;
+            header("Location: wouu.php");
+        } else {
+           $msg="Contraseña incorrecta";
+        } 
+        break;
+    }
+        
+}
+if (!$found){
+    $msg="Usuario no existe";
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -14,7 +45,10 @@
     
 <div class="box">
     <h2>Log in</h2>
-    <form action="procesarl.php" method="post">
+    <form method="post">
+        <?php if ($msg):?>
+            <p style="color: red;"><?php echo $msg; ?></p>
+        <?php endif; ?>
         <label>Usuario</label>
         <input type="text" name="user" required> <br>
         <label>Contraseña</label>

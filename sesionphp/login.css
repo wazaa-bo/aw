@@ -1,10 +1,7 @@
-        head{
-            background-color: black;
-        }
-        
+
         body{
             margin: 0;
-            background-image: url(img/nierr2.jpg);
+            background-image: url(img/whoami.jpg);
             background-size: cover;
             font-family: fantasy;
             display: flex;

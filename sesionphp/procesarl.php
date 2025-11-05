@@ -3,21 +3,25 @@ session_start();
 
 $user=$_POST['user'];
 $password=$_POST['password'];
-$users=file("users.txt",FILE_IGNORE_NEW_LINES);
+$line=file("users.txt",FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
 
-$login_success=false;
-foreach($users as $line){
-    list($user_line,$hash)=explode(":",$line);
-    if($user_line===$user && password_verify($password,$hash)){
-        $login_success=true;
-        $_SESSION['user']=$user;
+$found=false;
+
+foreach($line as $l){
+    list($u,$hash)=explode(":",$l,2);
+    
+    if($u === $user){
+        $found=true;
+        if (password_verify($password,$hash)){
+            $_SESSION['user']=$user;
+            header("Location: wouu.php");
+        } else {
+           echo"Contraseña incorrecta";
+        } 
         break;
     }
+        
 }
-if($login_success){
-    header("Location: wouu.php");
-    exit;
-} else{
-    echo"<h1>User or password incorrect</h1>";
-    echo"<p><a href='iniciarsesion.php'>Try again</a></p>";
+if (!$found){
+    echo"Usuario no existe";
 }
