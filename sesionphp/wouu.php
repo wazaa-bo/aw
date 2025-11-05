@@ -1,6 +1,12 @@
 <?php
 session_start();
 $log=isset($_SESSION['user']);
+
+if($log) {
+    $clase_body="body-login";
+}   else{
+    $clase_body="body-logoff";
+}
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -9,9 +15,9 @@ $log=isset($_SESSION['user']);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weiss</title>
     <link rel="icon" href="img/grr.jpg">
-    <link rel="stylesheet" href="wouu.css">
+    <link rel="stylesheet" href="css/wouu.css">
 </head>
-<body>
+<body class="<?php echo $clase_body; ?>">
 
 <?php if($log): ?>
     <br><br><br>
