@@ -55,7 +55,7 @@ if (!$found){
         <input type="password" name="password" required> <br>
         <button type="submit">Entrar</button>
     </form>
-    <p>Don't have an account? <a href="registro.php">Sign in here</a></p>
+    <p>Don't have an account? <a href="registro.php">Sign up here</a></p>
 </div>
 </body>
 </html>

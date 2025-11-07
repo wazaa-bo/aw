@@ -4,10 +4,12 @@
             font-size: larger;
         }
         .body-login{
-            background-image: url(img/forest.jpg);
+            background-image: url(img/nierr2.jpg);
+            background-size: cover;
         }
         .body-logoff{
             background-image: url(img/weiss.jpeg);
+            background-size: cover;
         }
         .topbar{
             position: fixed;

@@ -46,7 +46,7 @@ if($log) {
 
     <header class="topbar">
         <a class="login" href="iniciarsesion.php">Log in</a>
-        <a class="signin" href="registro.php">Sign in</a>
+        <a class="signin" href="registro.php">Sign up</a>
     </header>
 
 <?php endif; ?>
