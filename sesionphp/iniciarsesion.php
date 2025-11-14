@@ -1,30 +1,30 @@
 <?php
 session_start();
-$msg="";
-if($_SERVER['REQUEST_METHOD']==='POST') {
+$msg="";        #variable que he creado para indicarle al usuario qué error hay y cambia en la situación a lo largo del código
+if($_SERVER['REQUEST_METHOD']==='POST') {   #esto le indica a la página que lo siguiente no va a ejecutarse hasta que el usuario pulse el botón
 
 $user=$_POST['user'];
 $password=$_POST['password'];
 $line=file("users.txt",FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
 
-$found=false;
+$found=false;   #variable de encontrar al usuario
 
 foreach($line as $l){
     list($u,$hash)=explode(":",$l,2);
     
     if($u === $user){
         $found=true;
-        if (password_verify($password,$hash)){
-            $_SESSION['user']=$user;
-            header("Location: wouu.php");
+        if (password_verify($password,$hash)){  #verifica el fichero de $line=file
+            $_SESSION['user']=$user;            #inicia sesión
+            header("Location: wouu.php");       #redirige a la página de bienvenida
         } else {
-           $msg="Contraseña incorrecta";
+           $msg="Contraseña incorrecta"; 
         } 
         break;
     }
         
 }
-if (!$found){
+if (!$found){   #si no se encuentra al usuario
     $msg="Usuario no existe";
     }
 }
@@ -45,9 +45,9 @@ if (!$found){
     
 <div class="box">
     <h2>Log in</h2>
-    <form method="post">
+    <form method="post">    
         <?php if ($msg):?>
-            <p style="color: red;"><?php echo $msg; ?></p>
+            <p style="color: red;"><?php echo $msg; ?></p> <!-- código de error -->
         <?php endif; ?>
         <label>Usuario</label>
         <input type="text" name="user" required> <br>
