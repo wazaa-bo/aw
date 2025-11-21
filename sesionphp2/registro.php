@@ -51,7 +51,7 @@ if($check->num_rows>0){
         <h2>Registro</h2>
         <form method="post">
             <?php if ($msg):?>
-                <p style="color: red;"><?php echo $msg; ?></p>
+                <p style="color: red;"><?php echo $msg; ?></p> <!-- no da mensaje sin esto porque el error de "usuario ya existe" es de tipo excepción unica, no como en el inicio de sesión que es condicional-->
             <?php endif; ?>
             <label>Usuario</label>
             <input type="text" name="user" required> <br>
