@@ -1,5 +1,6 @@
 <?php
 session_start();
+$gittoken="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";
 $log=isset($_SESSION['user']); #variable para detectar si el usuario ha iniciado sesión
 
 if($log) {
