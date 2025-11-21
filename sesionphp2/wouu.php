@@ -7,6 +7,7 @@ if($log) {
 }   else{
     $clase_body="body-logoff"; #variable para los usuarios sin ssesión
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="es">
