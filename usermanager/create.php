@@ -20,19 +20,21 @@ if($_POST){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/create.css">
+    <link rel="stylesheet" href="css/anim.css">
     <title>Create user</title>
 </head>
 <body>
 <div class="formulario">
-    <h1>Create user</h1>
+    <h1 class="beat-effect">Create user</h1>
     <form method="post">
-        <input type="text" name="name" placeholder="Name" required>
-        <input type="email" name="email" placeholder="Email" required>
-        <input type="numer" name="age" placeholder="Age" required>
+        <input type="text" name="name" placeholder="Name" required><br>
+        <input type="email" name="email" placeholder="Email" required><br>
+        <input type="numer" name="age" placeholder="Age" required><br>
         <select name="rol">
             <option value="user">User</option>
             <option value="admin">Admin</option>
-        </select>
+        </select> <br>
+        <button type="submit">Crear usuario</button>
     </form>
 </div>
 <script src="js/vali.js"></script>

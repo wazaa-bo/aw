@@ -1,0 +1,14 @@
+if
+<audio autoplay loop controls>
+    <source src="./musica/melodia.mp3" type="audio/mpeg">
+    Tu navegador no soporta el elemento de audio.
+</audio>
+else
+A:
+<audio controls loop>
+    <source src="./musica/melodia.mp3" type="audio/mpeg">
+</audio>
+B, interact:
+<audio autoplay loop id="miMusica">
+    <source src="./musica/melodia.mp3" type="audio/mpeg">
+</audio>

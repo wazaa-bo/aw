@@ -1,0 +1,11 @@
+body{
+    background-image: 
+    linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url('./img/aint/nopeyouretoolateialreadydied.jpg');
+    background-size: contain;
+    background-color: rgba(0,0,0,0.5);
+    color: rgba(255,255,255,1);
+    font-family: monospace;
+    display: flex;
+    justify-content: center;
+}

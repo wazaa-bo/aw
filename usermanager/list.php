@@ -9,11 +9,12 @@ $users=$stmt->fetchAll(PDO::FETCH_ASSOC);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/list.css">
+    <link rel="stylesheet" href="css/anim.css">
     <title>List</title>
 </head>
 <body>
 <div class="contenedor">
-    <h1>usuarios</h1>
+    <h1 class="beat-effect">Users</h1>
     <a href="create.php" class="btn">Crear usuario</a>
 
     <table>
@@ -32,6 +33,9 @@ $users=$stmt->fetchAll(PDO::FETCH_ASSOC);
                 <a href="del.php" class="btndel" id="<?=$u['id']?>">Eliminar</a>
             </td>
         </tr>
+        <a href="javascript:history.back()" class="back">
+            <img src="./css/img/icon/back.png" alt="Back" style="width:40px">
+        </a>
         <?php endforeach;?>
     </table>
 </div>

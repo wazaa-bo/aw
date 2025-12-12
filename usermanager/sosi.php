@@ -9,7 +9,7 @@
 </head>
 <body>
 <div class="container">
-    <h1>Gestión de usuarios</h1>
+    <h1 class="beat-effect">Gestión de usuarios</h1> <br>
     <a href="list.php" class="btn">CRUD</a>
 </div>
 </body>

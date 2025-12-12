@@ -25,6 +25,7 @@ if($_POST){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/edit.css">
+    <link rel="stylesheet" href="css/anim.css">
     <title>Edit user</title>
 </head>
 <body>
@@ -37,11 +38,14 @@ if($_POST){
             <select name="rol">
                 <option value="user">User</option>
                 <option value="admin">Admin</option>
-            </select>
+            </select> <br>
             <button class="btn-aplicar" type="submit">Aplicar cambios</button>
             <button class="btn-cancelar" type="reset">Cancelar</button>
         </form>
     </div>
+        <a href="javascript:history.back()" class="back">
+            <img src="./css/img/icon/back.png" alt="Back" style="width:40px">
+        </a>
 <script src="js/vali.js"></script>
 </body>
 </html>
