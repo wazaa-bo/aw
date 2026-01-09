@@ -1,0 +1,44 @@
+body{
+    background-image: url(./img/DWO/ZS1.jpg);
+    background-size: cover;
+    font-family: monospace;
+    color: rgba(255,255,255,0.7);
+    font-style:oblique;
+    display: flex;
+    justify-content: center;   
+}
+.formulario{
+    padding: 30px;
+    background: rgba(0,0,0,0.6);
+    border-radius: 15px;
+}
+input{
+    width: 80%;
+    margin: 8px 0;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    background: rgba(255,255,255,0.6);
+}
+button{
+    margin: 8px 0;
+    padding: 8px;
+    border: none;
+    border-radius: 4px;
+    background: rgba(255,255,255,0.7);
+    cursor: pointer;
+}
+.back{
+    position: fixed;
+    left: 10px;
+    top: 10px;
+    height: auto;
+    cursor: pointer;
+    display: block;
+    padding: 5px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 10px;
+}
+.back:hover{
+    transform: scale(1.1);
+}

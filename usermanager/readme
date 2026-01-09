@@ -1,0 +1,48 @@
+En todas las páginas se añade música, sus respectivos archivos .css y uno adicional con la propiedad beat-effect,
+que al ponerle class a cualquier objeto hace efecto. También un botón para volver a la página anterior.
+
+Sosi.php es la página de bienvenida al proyecto. Ofrece tres enlaces a la lista de usuarios, a la creación de usuarios, al login y al perfil personal.
+Mi proyecto ofrece seguridad con un simple log in, la lista protegida por el rol de admin que se consigue accediendo con un usuario admin
+o creando un nuevo usuario admin con una clave.
+en create.php se define key con la clave. El siguiente if se ejecuta al enviar el formulario.
+Se asocian las variables con los datos de post, la contraseña se hashea(etc).
+Si el usuario desea crear un admin, el código busca si la sesión actual está establecida con el rol de admin,
+y asocia el akey con el formulario. Si no se encuentra la sesión de admin ni la contraseña, no se crea el usuario.
+Seguidamente se prepara la sentencia para insertar los datos en la base de datos y se ejecuta.
+Aqui lleva a la lista, pero la lista está protegida ante usuarios no logeados, y los reenvia al login.php.
+En este archivo, lo que se ve al principio es que si detecta una sesión,
+lleva al usuario a su perfil. Para hacerlo sencillo, el usuario solo tendrá que insertar su ID, nombre de usuario o email y
+contraseña para continuar. Se define una variable que abarca estas tres informaciones.
+Seguidamente se prepara una sentencia que busca estas tres informaciones. Cuando se ejecuta, si el id/usuario/email y
+contraseña son correctas, inicia sesión. Dependiendo del rol, se le redirige a la lista de usuarios o al perfil.
+
+En la lista, se protege la información detectando la sesión. Si no se detecta una sesión, redirige al login.
+Si se detecta una sesión pero no es rol de admin, se redirige al perfil. 
+Dentro, se prepara una sentencia para pedir los datos de los usuarios y se guarda en un array con fetch y con la función de assoc,
+solo devuelve el contenido de las columnas. si fuera un fetch normal,
+devolvería el nombre de la columna y el contenido sucesivamente y quedaría muy sucio.
+Dentro del html, se comienza un foreach para el fetchAll anterior con las columnas de la tabla,
+donde se añaden dos botones asociados al id de dicho usuario para gestionarlo.
+
+En la gestión, edit.php, se solicita el id y se prepara una sentencia. Lo seguido es asociar los datos con los de la tabla.
+Si se manda el formulario, aqui, si se decide cambiar la contraseña del usuario,
+se hashea y prepara una sentencia para insertar los datos nuevos a la tabla. En el caso de que no se haya cambiado la contraseña,
+se mandan los demás datos. Redirige a la lista una vez enviado. En el formulario, se insertan php para que al acceder se
+rellene con los datos del usuario elegido. Si rectifica, hay un botón de reset.
+
+En la página de perfil, main.php, si no se encuentra una sesión, se manda al login. En el código,
+el servidor guarda los datos del formulario que se pueden insertar.
+Dentro del segundo bloque de if, se encuentran otros bloques para gestionar que la imagen que se elija de foto de perfil
+se guarde en la base de datos, y da la posibilidad de que el usuario incluso sin ser admin pueda cambiar su propio nombre
+basandose en su ID. También ofrece un pequeño cuadro para texto.
+Se prepara una sentencia en varios bloques para subir cada cosa.
+Se crea una variable flash para evitar que al recargar la página se reenvie el formulario y por tanto pueda subir varias veces su
+foto de perfil. Fuera de los bloques se prepara una sentencia para coger los datos de la tabla según el ID del usuario
+y rellenarlo en el formulario. Por defecto se ofrece una foto de perfil de un gato y 40Mb de máximo para una foto de perfil propia.
+Para los administradores un enlace de vuelta a la lista. Desde aqui se puede cerrar sesión o ir a la comunidad.
+
+En la comunidad, si no se detecta una sesión, reenvia al login.
+Aquí se usa otra tabla separada para las publicaciones que se recogen con server post.
+Se crea una variable para recoger los datos del usuario de la tabla y se asocian a otras variables,
+y se prepara una sentencia para pedir los datos. Luego se empieza un foreach por cada publicación y
+se añade la información del usuario que las creó.

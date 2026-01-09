@@ -1,0 +1,59 @@
+body{
+    background-image: 
+    linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
+    url(./img/DWO/cdown.jpg);
+    background-size: cover;
+    font-family: monospace;
+    color: rgba(255,255,255,0.7);
+    font-style:oblique;
+    display: flex;
+    justify-content: center;
+}
+textarea{
+    width: 60%;
+    margin: 8px 0;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    background: rgba(255,255,255,0.6);
+}
+input{
+    width: 60%;
+    margin: 8px 0;
+    padding: 9px;
+    border: none;
+    border-radius: 4px;
+    background: rgba(255,255,255,0.6);
+}
+input.browse{
+    padding: 0;
+    background: none;
+}
+button{
+    margin: 8px 0;
+    padding: 8px;
+    border: none;
+    border-radius: 4px;
+    background: rgba(255,255,255,0.7);
+    cursor: pointer;
+    font-family: monospace;
+    position: fixed;
+    right: 70vh;
+}
+.profileimg{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 20px;
+}
+.formulario{
+    padding: 20px;
+    background: rgba(0,0,0,0.6);
+    border-radius: 15px;
+    justify-content: center;
+}
+header{
+    position: fixed;
+    right: 10px;
+}

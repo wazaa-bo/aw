@@ -39,3 +39,14 @@ button{
     cursor: pointer;
 }
 
+.back{
+    position: fixed;
+    left: 10px;
+    top: 10px;
+    height: auto;
+    cursor: pointer;
+    display: block;
+}
+.back:hover{
+    transform: scale(1.1);
+}
