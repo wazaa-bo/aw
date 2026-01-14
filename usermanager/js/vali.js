@@ -19,8 +19,8 @@ document.addEventListener("DOMContentLoaded", function(){
         if (!emailRegex.test(email)){
             error.push=("Input a valid email")
         }
-        if(isNaN(age) || age<1 || age>120) {
-            error.push("Age must be between 1 and 120");
+        if(isNaN(age) || age<1 || age>420) {
+            error.push("Age must be between 1 and 420");
         }
         if (rol !=="user" && rol !=="admin") {
             error.push("Select a valid role");

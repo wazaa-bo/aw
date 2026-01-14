@@ -22,6 +22,13 @@ if($_POST){
             exit;
         }
     }
+$check = $pdo->prepare("SELECT COUNT(*) FROM users WHERE name = ?");
+$check->execute([$name]);
+if ($check->fetchColumn() > 0) {
+    echo "<script>alert('El usuario ya existe'); window.history.back();</script>";
+    exit;
+}
+
     $stmt=$pdo->prepare("INSERT INTO users(name,pass,email,age,rol) VALUES (?,?,?,?,?)");
     $stmt->execute([$name,$hash,$email,$age,$rol]);
 
