@@ -1,38 +1,4 @@
-<?php
-session_start();
-include "db.php";
-$error="";
-if(isset($_SESSION['userid'])) {
-    header("Location:main.php");
-    exit;
-}
-if($_POST) {
-
-
-    $login=$_POST["login"];
-    $pass=$_POST["pass"];
-
-    $stmt=$pdo->prepare("SELECT * FROM users WHERE name=? OR email=? OR id=?");
-    $stmt->execute([$login,$login,$login]);
-    $user=$stmt->fetch();
-
-    if($user && password_verify($pass,$user['pass'])){
-        $_SESSION['userid']=$user['id'];
-        $_SESSION['username']=$user['name'];
-        $_SESSION['rol']=$user['rol'];
-        if($user['rol']=='admin'){
-            header("Location:list.php");
-        } else {
-            header("Location:main.php");
-        }
-        exit;
-        
-    } else {
-        $error="User or password incorrectos";
-    }
-}
-?>
-<!DOCTYPE html>
+<?php session_start(); ?> <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -48,7 +14,7 @@ if($_POST) {
             <p><?=$error?></p>
         <?php endif;?>
 
-        <form method="post">
+        <form action="proc/procl.php" method="post">
             <input type="text" name="login" placeholder="User, email or ID" required><br>
             <input type="password" name="pass" placeholder="Password" required><br>
             <button type="submit">Login</button>

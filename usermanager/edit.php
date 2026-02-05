@@ -1,33 +1,4 @@
-<?php
-session_start();
-include "db.php";
-
-$id=$_GET["id"];
-$stmt=$pdo->prepare("SELECT * FROM users WHERE id=?");
-$stmt->execute([$id]);
-$user=$stmt->fetch();
-
-if($_POST){
-    $name=$_POST["name"];
-    $email=$_POST["email"];
-    $age=$_POST["age"];
-    $rol=$_POST["rol"];
-    $pass=$_POST["pass"];
-
-    if(!empty($pass)){
-        $hash=password_hash($pass,PASSWORD_DEFAULT);
-        $update=$pdo->prepare("UPDATE users SET name=?,email=?,age=?,rol=?,pass=? WHERE id=?");
-        $update->execute([$name,$email,$age,$rol,$hash,$id]);
-    } else {
-        $update=$pdo->prepare("UPDATE users SET name=?,email=?,age=?,rol=? WHERE id=?");
-        $update->execute([$name,$email,$age,$rol,$id]);
-    }
-
-    header("Location:list.php");
-    exit;
-}
-?>
-<!DOCTYPE html>
+<?php session_start(); ?> <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -39,7 +10,7 @@ if($_POST){
 <body>
     <div class="formulario">
         <h1 class="beat-effect">Edit user</h1>
-        <form method="post">
+        <form action="proc/proce.php" method="post">
             <input type="text" name="name" placeholder="Name" value="<?=$user['name'] ?>" required> <br>
             <input type="password" name="pass" placeholder="New password"><br>
             <input type="email" name="email" placeholder="Email" value="<?=$user['email']?>" required><br>

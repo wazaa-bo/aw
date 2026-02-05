@@ -1,42 +1,5 @@
-<?php
-session_start();
-include "db.php";
 
-define('key','aBC123!');
-
-if($_POST){
-    $name=$_POST["name"];
-    $pass=$_POST["pass"];
-    $hash=password_hash($pass,PASSWORD_DEFAULT);
-
-    $email=$_POST["email"];
-    $age=$_POST["age"];
-    $rol=$_POST["rol"];
-
-    if($rol=='admin') {
-        $adminlog=(isset($_SESSION['rol'])&& $_SESSION['rol']=='admin');
-        $keylog=(isset($_POST['akey'])&& $_POST['akey']==key);
-
-        if(!$adminlog && !$keylog) {
-            echo"<script>alert('Para crear un administrador necesitas ser uno o introducir una clave'); window.history.back();</script>";
-            exit;
-        }
-    }
-$check = $pdo->prepare("SELECT COUNT(*) FROM users WHERE name = ?");
-$check->execute([$name]);
-if ($check->fetchColumn() > 0) {
-    echo "<script>alert('El usuario ya existe'); window.history.back();</script>";
-    exit;
-}
-
-    $stmt=$pdo->prepare("INSERT INTO users(name,pass,email,age,rol) VALUES (?,?,?,?,?)");
-    $stmt->execute([$name,$hash,$email,$age,$rol]);
-
-    header("Location:list.php");
-    exit;
-}
-?>
-<!DOCTYPE html>
+<?php session_start(); ?> <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -48,7 +11,7 @@ if ($check->fetchColumn() > 0) {
 <body>
 <div class="formulario">
     <h1 class="beat-effect">Create user</h1>
-    <form method="post">
+    <form action="proc/procc.php" method="post">
         <input type="text" name="name" placeholder="Name" required><br>
         <input type="password" name="pass" placeholder="Password" required> <br>
         <input type="email" name="email" placeholder="Email" required><br>
