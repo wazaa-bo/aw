@@ -84,5 +84,6 @@ $user=$stmt->fetch();
     <source src="./audio/13.mp3" type="audio/mpeg">
 </audio>
 <script src="js/audio.js"></script>
+<script src="js/vali.js"></script>
 </body>
 </html>
