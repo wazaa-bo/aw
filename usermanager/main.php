@@ -12,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD']== 'POST') {
     $newbio=$_POST['bio'];
 
     if(isset($_FILES['foto'])&& $_FILES['foto']['error']==0) {
-        $folder="./uploads/";
+        $folder="uploads/";
         $filename=time()."_".$_FILES['foto']['name'];
         $route=$folder.$filename;
 
@@ -25,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD']== 'POST') {
     }
     $stmt=$pdo->prepare("UPDATE users SET name=?,bio=? WHERE id=?");
     if($stmt->execute([$newname,$newbio,$userid])){
-        $_SESSION['$flash']="Profile updated";
+        $_SESSION['flash']="Profile updated";
         $_SESSION['username']=$newname;
         header("location:main.php");
         exit;
@@ -84,6 +84,5 @@ $user=$stmt->fetch();
     <source src="./audio/13.mp3" type="audio/mpeg">
 </audio>
 <script src="js/audio.js"></script>
-<script src="js/vali.js"></script>
 </body>
 </html>
